@@ -26,7 +26,7 @@
         <div class="col cards-section d-flex flex-wrap">
 
             <!-- card -->
-            <div class="cards" data-color="">
+            <div class="cards" data-color="" data-user="<%= user %>">
                 <div class="col d-flex flex-column justify-content-center justify-content-center align-items-center" style="height: 100%;">
                     <i class="fa-solid fa-circle-plus ic-plus"></i>
                     <div class="colors mt-3">
@@ -40,7 +40,7 @@
             </div>
             
             <% notes.forEach(note => { %>
-                <div class="cards" data-color="<%= note.color %>" style="background-color:<%= note.color %> ;">
+                <div class="cards" data-color="<%= note.color %>" data-user="<%= user  %>" style="background-color:<%= note.color %> ;">
                     <form action="/note" method="post" class="d-flex flex-column"">
                         <textarea class="title-input" rows="1" name="title"  spellcheck="false"><%= note.title %> </textarea>
                         <textarea class="text-input" name="text" cols="30" rows="10"spellcheck="false"><%= note.text %> </textarea>

@@ -65,12 +65,14 @@ icPlus.addEventListener('mouseout',() => {
     cards[0].style.opacity = 0.8
 })
 icPlus.addEventListener('click',() => {
-    const dataColor = cards[0].getAttribute('data-color')
+    const dataColor = cards[0].getAttribute('data-color');
+    const dataUser = cards[0].getAttribute('data-user');
     cards[0].innerHTML = `
     <form action="/note" method="post" class="d-flex flex-column"">
         <textarea class="title-input" name="title" id="" cols="30" rows="1" spellcheck="false"></textarea>
         <textarea class="text-input" name="text" id="" cols="30" rows="10"spellcheck="false"></textarea>
         <input class="inpt-color" type="hidden" name="color" value=${dataColor}>
+        <input class="inpt-user" type="hidden" name="user" value=${dataUser}>
         <div class="action">
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk btn-act" data-act="save"></i></button>        
             <i class="fa-solid fa-pen-to-square btn-act" data-act="edit"></i>

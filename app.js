@@ -59,9 +59,9 @@ app.post('/register',async (req,res) => {
 app.get('/note',async(req,res) => {
     const user = await User.find({secret:req.cookies.secret});
     if (req.cookies.secret !== undefined && user.length !== 0){
-        const notes = await Note.find();
+        const notes = await Note.find({user:user[0].username});
         notes.reverse()
-        res.render('note',{title:'note',notes,secret:req.cookies.secret});
+        res.render('note',{title:'note',notes,secret:req.cookies.secret,user:user[0].username});
     }else{
         res.redirect('/login')
     }
@@ -76,7 +76,7 @@ app.get('/note/delete',async(req,res) => {
 
 // bikin dan update note
 app.post('/note',async(req,res) => {
-    const {id,title,text,color} = req.body;
+    const {id,user,title,text,color} = req.body;
     const note = await Note.find({_id:ObjectId(id)});
     if (note.length == 0){
         // cek isi text

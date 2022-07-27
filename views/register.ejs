@@ -1,0 +1,35 @@
+<%- include('layouts/top') %>
+<div class="container-fluid d-flex align-items-center">
+    <div class="login-section mx-auto">
+            <h1 class="text-center text-white mt-3">Register</h1>
+            <% if (msg.length > 0 ) { %>
+                <div class="alert alert-<%=alert%> w-50 mx-auto text-center" role="alert">
+                    <%= msg  %> 
+                </div>
+            <% } %>
+            <div class="row mt-4">
+                <div class="col-6 mx-auto">
+                    <form class="d-flex flex-column" action="/register" method="post">
+                        <div class="mb-3 d-flex flex-column align-items-center ">
+                          <label for="username" class="form-label text-white">username</label>
+                          <input type="textl" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3 d-flex flex-column align-items-center">
+                          <label for="password" class="form-label text-white">Password</label>
+                          <input type="password" class="form-control password" id="password" name="password" required>
+                        </div>
+                        <div class="mb-3 d-flex flex-column align-items-center">
+                          <label for="password" class="form-label text-white">Confirm Password</label>
+                          <input type="password" class="form-control pass-confirm" id="password" name="passConfirm" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3 btn-submit" disabled>Create-account</button>
+                    </form>
+                    <div class="login-user d-flex justify-content-center mt-3">
+                        <span class="text-white">already have account ? <a class="text-decoration-none" href="/login" style="color:#00FFFF;">login</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('layouts/bottom') %>
+

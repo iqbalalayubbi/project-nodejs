@@ -1,0 +1,66 @@
+<%- include('layouts/top')%>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col navbar-section">
+            <nav class="d-flex justify-content-between align-items-center">
+                <div class="brand ms-3">
+                    <h1>Note app</h1>
+                </div>
+                <div class="input-group search">
+                    <input type="text" class="form-control input-search" aria-describedby="basic-addon1" value="search note">
+                    <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+                <div class="profile me-3 d-flex align-items-center ">
+                    <img src="img/profile.svg" alt="">
+                    <div class="logout d-flex align-items-center ms-4" data-id="<%= secret %>">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <h5>Logout</h3>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col cards-section d-flex flex-wrap">
+
+            <!-- card -->
+            <div class="cards" data-color="">
+                <div class="col d-flex flex-column justify-content-center justify-content-center align-items-center" style="height: 100%;">
+                    <i class="fa-solid fa-circle-plus ic-plus"></i>
+                    <div class="colors mt-3">
+                        <i class="fa-solid fa-square color" data-color="#FF2B9E"></i>
+                        <i class="fa-solid fa-square color" data-color="#B40B8F"></i>
+                        <i class="fa-solid fa-square color" data-color="#03D972"></i>
+                        <i class="fa-solid fa-square color" data-color="#7673F2"></i>
+                        <i class="fa-solid fa-square color" data-color="#00BDBD"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <% notes.forEach(note => { %>
+                <div class="cards" data-color="<%= note.color %>" style="background-color:<%= note.color %> ;">
+                    <form action="/note" method="post" class="d-flex flex-column"">
+                        <textarea class="title-input" rows="1" name="title"  spellcheck="false"><%= note.title %> </textarea>
+                        <textarea class="text-input" name="text" cols="30" rows="10"spellcheck="false"><%= note.text %> </textarea>
+                        <input type="hidden" name="id" value="<%= note._id %>">
+                        <div class="action">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk btn-act" data-act="save"></i></button>        
+                            <i class="fa-solid fa-pen-to-square btn-act" data-act="edit"></i>
+                            <i class="fa-solid fa-trash btn-act" data-act="delete" data-id="<%= note._id %>"></i>
+                        </div>
+                    </form>
+                </div>
+            <% }) %>
+            
+            <!-- akhir card -->
+            
+        </div>
+    </div>
+    
+</div>
+
+<!-- sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<%- include('layouts/bottom')%>

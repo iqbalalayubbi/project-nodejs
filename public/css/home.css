@@ -31,3 +31,14 @@
     justify-content: center;
     align-items: center;
 }
+
+/* responsive */
+@media only screen and (max-device-width: 768px) {
+    .row{
+        background-size: 100%;
+    } 
+    
+    .row button{
+        width: 40%;
+    }
+}

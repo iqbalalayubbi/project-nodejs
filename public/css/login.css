@@ -35,3 +35,13 @@ form button:hover{
 .create-user a:hover{
     opacity: 0.8;
 }
+
+/* responsive */
+@media only screen and (max-device-width: 768px) {
+    .login-section{
+        width: 100%;
+    }
+    .form-section{
+        width: 80%;
+    }
+}

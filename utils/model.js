@@ -2,7 +2,14 @@ const mongoose = require('mongoose');
 
 const Note = mongoose.model('Note',{
     title:String,
-    text:String
+    text:String,
+    color:String
 });
 
-module.exports = Note
+const User = mongoose.model('User',{
+    username:String,
+    password:String,
+    secret:String
+})
+
+module.exports = {Note,User}

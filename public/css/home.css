@@ -1,0 +1,33 @@
+.container-fluid{
+    height: 100vh;
+    background: linear-gradient(180deg, #CA4BAE 0%, #1D0317 100%);
+}
+.row{
+    height: 100%;
+    background-position: center center;
+    background-image: url('../img/note-bg.svg');
+    background-repeat: no-repeat;
+}
+.row button{
+    border:3px solid white;
+    width: 20%;
+}
+.row button:hover{
+    border:3px solid white !important;
+    box-shadow: none !important;
+    outline: none !important;
+    opacity: 0.8;
+}
+.login{
+    background-color: #7AE284 !important;
+}
+.register{
+    background-color: #F16C59 !important;
+}
+.row .col{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
